@@ -1,0 +1,68 @@
+<body></body>
+<script>
+  things2Replace = [
+    '+', 
+    '%60', 
+    '%40', 
+    '%23', 
+    '%24', 
+    '%25', 
+    '%5E', 
+    '%26', 
+    '%3D', 
+    '%2B', 
+    '%5B', 
+    '%7B', 
+    '%5D', 
+    '%7D', 
+    '%7C', 
+    '%3B', 
+    '%3A', 
+    '%27', 
+    '%22', 
+    '%2C', 
+    '%3C', 
+    '%3E', 
+    '%2F', 
+    '%3F', 
+  ]
+  replaceThings = {
+    '+': ' ', 
+    '%60': '`', 
+    '%40': '@', 
+    '%23': '#', 
+    '%24': '$', 
+    '%25': '%', 
+    '%5E': '^', 
+    '%26': '&', 
+    '%3D': '=', 
+    '%2B': '[', 
+    '%5B': '{', 
+    '%7B': ']', 
+    '%5D': '}', 
+    '%7D': 'back-/', 
+    '%7C': '|', 
+    '%3B': ';', 
+    '%3A': ':', 
+    '%27': "'", 
+    '%22': '"', 
+    '%2C': ',', 
+    '%3C': '<', 
+    '%3E': '>', 
+    '%2F': '/', 
+    '%3F': '?', 
+  }
+  if (Boolean(location.href.split('t=')[1]) == true) {
+    let text = location.href.split('t=')[1]
+    things2Replace.forEach(thing => {
+      while (text.includes(thing) === true) {
+        text = text.replace(thing, replaceThings[thing])
+      }
+    })
+    localStorage.setItem('text', text)
+    location.href = '/'
+  }
+  else {
+    document.body.innerHTML = '<h1>Error: Please Try Again</h1>'
+  }
+</script>

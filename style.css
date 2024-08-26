@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+textarea {
+  padding: 8px;
+  width: calc(100% - 18px);
+  height: calc(100% - 18px);
+  resize: none;
+}
+
+textarea[disabled] {
+  color: fieldtext;
+  background-color: field;
+  border-color: rgb(118, 118, 118), rgb(133, 133, 133) !important;
+}
